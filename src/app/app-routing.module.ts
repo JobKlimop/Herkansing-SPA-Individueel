@@ -9,11 +9,12 @@ import {EventDetailsComponent} from './main/event/event-list/event-details/event
 import {HomeComponent} from './main/home/home.component';
 import {RegisterComponent} from './auth/register/register.component';
 import {LoginComponent} from './auth/login/login.component';
+import {AuthGuard} from './_services/auth-guard.service';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
 
-  {path: '', component: MainComponent, children: [
+  {path: '', canActivate: [AuthGuard], component: MainComponent, children: [
       {path: 'home', component: HomeComponent},
       {path: 'event', component: EventComponent, children: [
           {path: '', component: EventListComponent},

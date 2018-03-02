@@ -11,13 +11,16 @@ import { AccountComponent } from './main/account/account.component';
 import { AppRoutingModule } from './app-routing.module';
 import { EventComponent } from './main/event/event.component';
 import { EventListComponent } from './main/event/event-list/event-list.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {EventService} from './_services/event.service';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EventService } from './_services/event.service';
+import { HttpClientModule } from '@angular/common/http';
 import { EventItemComponent } from './main/event/event-list/event-item/event-item.component';
 import { EventDetailsComponent } from './main/event/event-list/event-details/event-details.component';
-import {DropdownDirective} from './_shared/dropdown.directive';
+import { DropdownDirective } from './_shared/dropdown.directive';
 import { HomeComponent } from './main/home/home.component';
+import { AuthService } from './_services/auth.service';
+import {AuthGuard} from './_services/auth-guard.service';
+import {UserService} from './_services/user.service';
 
 @NgModule({
   declarations: [
@@ -43,7 +46,10 @@ import { HomeComponent } from './main/home/home.component';
     HttpClientModule
   ],
   providers: [
-    EventService
+    EventService,
+    AuthService,
+    AuthGuard,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

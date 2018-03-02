@@ -36,7 +36,7 @@ export class EventService {
       })
       .catch(error => {
         return this.handleError(error);
-      })
+      });
   }
 
   private handleError(error: any): Promise<any> {
