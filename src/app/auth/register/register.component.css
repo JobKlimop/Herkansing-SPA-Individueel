@@ -1,0 +1,10 @@
+.registerBtn {
+  background-color: limegreen;
+  border-color: limegreen;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.registerBox {
+  padding: 10px;
+}

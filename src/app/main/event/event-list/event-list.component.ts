@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-// import { EventService} from '../../../_services/event.service';
+import {EventService} from '../../../_services/event.service';
+import {Event} from '../../../_models/event.model';
 
 @Component({
   selector: 'app-event-list',
@@ -7,15 +8,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./event-list.component.css']
 })
 export class EventListComponent implements OnInit {
+  events: Event[];
+  eventArray: Event[];
 
-  // constructor(private eventService: EventService) { }
+  constructor(private eventService: EventService) {
 
-  allEvents: Event[];
-
-  ngOnInit() {
-    // this.eventService.getAllEvents()
-    //   .then(events => this.allEvents)
-    //   .catch(err => console.log('error'));
   }
 
+  ngOnInit() {
+    this.eventService.getAllEvents()
+      .then((events) => {
+        this.events = events;
+        this.eventArray = events;
+        console.log(events);
+      })
+      .catch((error) =>
+        console.log(error));
+  }
 }
+

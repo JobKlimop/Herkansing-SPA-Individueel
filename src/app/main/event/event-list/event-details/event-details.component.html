@@ -1,0 +1,22 @@
+<div class="col-xs-12 col-md-12 col-lg-12">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-12 col-lg-12 eventImage">
+        <img src="{{event.eventImageUrl}}">
+      </div>
+      <div class="col-xs-8 col-md-4 col-lg-4">
+        <h1>{{event.eventName}}</h1>
+        <h3>{{event.artist}}</h3>
+        <p>{{event.eventDate}} - {{event.eventTime}}</p>
+        <p>{{event.location}}</p>
+        <p>Tickets left: {{event.noOfTickets - event.ticket.length}}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-8 col-lg-8">
+        <h2>Also coming</h2>
+      </div>
+    </div>
+  </div>
+</div>
+

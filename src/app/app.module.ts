@@ -11,7 +11,13 @@ import { AccountComponent } from './main/account/account.component';
 import { AppRoutingModule } from './app-routing.module';
 import { EventComponent } from './main/event/event.component';
 import { EventListComponent } from './main/event/event-list/event-list.component';
-// import {EventService} from './_services/event.service';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {EventService} from './_services/event.service';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { EventItemComponent } from './main/event/event-list/event-item/event-item.component';
+import { EventDetailsComponent } from './main/event/event-list/event-details/event-details.component';
+import {DropdownDirective} from './_shared/dropdown.directive';
+import { HomeComponent } from './main/home/home.component';
 
 @NgModule({
   declarations: [
@@ -23,14 +29,21 @@ import { EventListComponent } from './main/event/event-list/event-list.component
     RegisterComponent,
     AccountComponent,
     EventComponent,
-    EventListComponent
+    EventListComponent,
+    EventItemComponent,
+    EventDetailsComponent,
+    DropdownDirective,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
-    // EventService
+    EventService
   ],
   bootstrap: [AppComponent]
 })

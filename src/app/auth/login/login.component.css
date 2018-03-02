@@ -1,0 +1,20 @@
+.loginBox {
+  padding: 10px;
+}
+
+.input-group {
+}
+
+h2 {
+  margin-left: 25%;
+}
+
+button {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.loginBtn {
+  background-color: #6cb9ff;
+  border-color: #6cb9ff;
+}

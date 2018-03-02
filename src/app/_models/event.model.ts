@@ -2,7 +2,7 @@ import {Ticket} from './ticket.model';
 
 export class Event {
   public eventName: string;
-  public imageUrl: string;
+  public eventImageUrl: string;
   public artist: string;
   public eventDate: string;
   public eventTime: string;
@@ -10,10 +10,10 @@ export class Event {
   public noOfTickets: number;
   public ticket: Ticket[];
 
-  constructor(eventName: string, imageUrl: string, artist: string, eventDate: string,
+  constructor(eventName: string, eventImageUrl: string, artist: string, eventDate: string,
               eventTime: string, location: string, noOfTickets: number, ticket: Ticket[]) {
     this.eventName = eventName;
-    this.imageUrl = imageUrl;
+    this.eventImageUrl = eventImageUrl;
     this.artist = artist;
     this.eventDate = eventDate;
     this.eventTime = eventTime;
@@ -22,3 +22,4 @@ export class Event {
     this.ticket = ticket;
   }
 }
+
