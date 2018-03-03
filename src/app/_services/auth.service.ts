@@ -41,8 +41,8 @@ export class AuthService {
       });
   }
 
-  private setSession(authResult, username) {
-    localStorage.setItem('token', JSON.stringify({authResult}));
+  private setSession(token, username) {
+    localStorage.setItem('token', JSON.stringify(token.token));
   }
 
   logout() {
