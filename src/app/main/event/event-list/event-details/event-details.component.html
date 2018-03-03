@@ -11,6 +11,9 @@
         <p>{{event.location}}</p>
         <p>Tickets left: {{event.noOfTickets - event.ticket.length}}</p>
       </div>
+      <div class="col-xs-12 col-md-12 col-lg-12">
+        <button class="btn btn-primary" (click)="getTicket()">Get Ticket!</button>
+      </div>
     </div>
     <div class="row">
       <div class="col-xs-12 col-md-8 col-lg-8">

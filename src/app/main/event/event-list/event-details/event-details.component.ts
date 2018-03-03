@@ -26,4 +26,8 @@ export class EventDetailsComponent implements OnInit {
             });
         });
   }
+
+  getTicket() {
+
+  }
 }
