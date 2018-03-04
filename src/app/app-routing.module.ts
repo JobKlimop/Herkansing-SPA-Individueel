@@ -10,17 +10,21 @@ import {HomeComponent} from './main/home/home.component';
 import {RegisterComponent} from './auth/register/register.component';
 import {LoginComponent} from './auth/login/login.component';
 import {AuthGuard} from './_services/auth-guard.service';
+import {UserDetailsComponent} from './main/account/user-details/user-details.component';
+import {UserResolver} from './_resolvers/user-resolver.service';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
 
   {path: '', canActivate: [AuthGuard], component: MainComponent, children: [
-      {path: 'home', component: HomeComponent},
+      {path: 'home', component: HomeComponent, resolve: {user: UserResolver}},
       {path: 'event', component: EventComponent, children: [
           {path: '', component: EventListComponent},
           {path: 'details/:eventName', component: EventDetailsComponent}
         ]},
-      {path: 'account', component: AccountComponent}
+      {path: 'account', component: AccountComponent, resolve: {user: UserResolver}, children: [
+          {path: '', component: UserDetailsComponent}
+        ]}
     ]},
   {path: 'auth', component: AuthComponent, children: [
       {path: 'login', component: LoginComponent},
@@ -32,7 +36,8 @@ const appRoutes: Routes = [
   imports: [
     RouterModule.forRoot(appRoutes)
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [UserResolver]
 })
 
 export class AppRoutingModule {
