@@ -7,3 +7,11 @@
 button {
   width:100%;
 }
+
+li {
+  list-style: none;
+}
+
+.ticketListBtn {
+  width: 100%;
+}

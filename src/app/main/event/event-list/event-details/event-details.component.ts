@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Event} from '../../../../_models/event.model';
 import {EventService} from '../../../../_services/event.service';
 import {ActivatedRoute, Params} from '@angular/router';
+import {TicketTypes} from '../../../../_models/tickettypes.model';
 
 @Component({
   selector: 'app-event-details',
@@ -11,6 +12,8 @@ import {ActivatedRoute, Params} from '@angular/router';
 export class EventDetailsComponent implements OnInit {
   event: Event;
   eventName: string;
+  ticketList: boolean;
+  ticketTypeArray: TicketTypes[] = [];
 
   constructor(private eventService: EventService,
               private route: ActivatedRoute) { }
@@ -23,11 +26,17 @@ export class EventDetailsComponent implements OnInit {
           this.eventService.getEventByName(this.eventName)
             .then((response) => {
               this.event = response;
+              this.ticketTypeArray = response.ticketTypes;
+              console.log(this.ticketTypeArray);
             });
         });
   }
 
+  toggleTicketList() {
+    this.ticketList = !this.ticketList;
+  }
+
   getTicket() {
-    
+
   }
 }
