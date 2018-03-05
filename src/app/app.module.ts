@@ -23,6 +23,7 @@ import {AuthGuard} from './_services/auth-guard.service';
 import {UserService} from './_services/user.service';
 import {AuthInterceptor} from './_interceptors/auth.interceptor';
 import { UserDetailsComponent } from './main/account/user-details/user-details.component';
+import {TicketService} from './_services/ticket.service';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { UserDetailsComponent } from './main/account/user-details/user-details.c
   ],
   providers: [
     EventService,
+    TicketService,
     AuthService,
     AuthGuard,
     UserService,

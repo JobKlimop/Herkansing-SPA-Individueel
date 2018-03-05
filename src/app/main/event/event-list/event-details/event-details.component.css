@@ -6,12 +6,28 @@
 
 button {
   width:100%;
+  height: auto;
 }
 
 li {
   list-style: none;
+  cursor: pointer;
 }
 
 .ticketListBtn {
   width: 100%;
+}
+
+.caret {
+  position: absolute;
+  left: 90%;
+  top: 45%;
+}
+
+.ticketSelector {
+  margin-top: 20px;
+}
+
+select {
+  border: 1px solid lightgray;
 }

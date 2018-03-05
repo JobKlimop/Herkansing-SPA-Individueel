@@ -1,11 +1,9 @@
-export class Ticket {
-  ticketId: number;
-  ticketType: string;
-  ticketPrice: number;
+import {TicketTypes} from './tickettypes.model';
 
-  constructor(ticketId: number, ticketType: string, ticketPrice: number) {
-    this.ticketId = ticketId;
+export class Ticket {
+  ticketType: TicketTypes;
+
+  constructor(ticketType: TicketTypes) {
     this.ticketType = ticketType;
-    this.ticketPrice = ticketPrice;
   }
 }

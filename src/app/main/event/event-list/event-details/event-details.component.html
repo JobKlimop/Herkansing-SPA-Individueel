@@ -4,7 +4,7 @@
       <div class="col-xs-12 col-md-12 col-lg-12 eventImage">
         <img src="{{event.eventImageUrl}}">
       </div>
-      <div class="col-xs-12 col-md-4 col-lg-4">
+      <div class="col-xs-12 col-md-8 col-lg-8">
         <h1>{{event.eventName}}</h1>
         <h3>{{event.artist}}</h3>
         <p>{{event.eventDate}} - {{event.eventTime}}</p>
@@ -12,18 +12,42 @@
         <p>Tickets left: {{event.noOfTickets - event.ticket.length}}</p>
         <p>{{event.ticketTypes[0].ticketType}}</p>
       </div>
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <ul>
-          <li class="dropdown" [ngClass]="{'open': ticketList === true}">
-            <button type="button" class="dropdown-toggle btn btn-primary ticketListBtn" (click)="toggleTicketList()">Choose your ticket <span class="caret"></span></button>
-            <ul class="dropdown-menu">
-              <li *ngFor="let type of ticketTypeArray" [type]="type"><a>{{type.ticketType}} Price: €{{type.price}}</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-      <div class="col-xs-12 col-md-12 col-lg-12">
-        <button class="btn btn-primary" (click)="getTicket()">Get Ticket!</button>
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 ticketSelector">
+        <form class="form-group" [formGroup]="ticketForm">
+          <fieldset>
+            <section class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+              <label>Ticket type:</label>
+            </section>
+            <section class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+              <label for="ticketType" class="select">
+                <select name="ticketType" id="ticketType" formControlName="ticketType" (change)="optionChosen()">
+                  <option disabled selected [value]="null">Choose ticket</option>
+                  <option *ngFor="let type of ticketTypeArray" [ngValue]="type">{{type.ticketType}}, Price: €{{type.price}}</option>
+                </select>
+              </label>
+            </section>
+            <section class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+              <label>Amount:</label>
+            </section>
+            <section class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+              <label for="ticketAmount" class="select">
+                <select name="ticketAmount" id="ticketAmount" formControlName="ticketAmount" (change)="optionChosen()">
+                  <option disabled selected [value]="null">Choose amount</option>
+                  <option *ngFor="let amount of amountArray" value="{{amount}}">{{amount}}</option>
+                </select>
+              </label>
+            </section>
+            <section class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+              <label>Total cost:</label>
+            </section>
+            <section class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+              <p>€{{currentPrice}}</p>
+            </section>
+            <section class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <button class="btn btn-primary" (click)="getTicket()">Get Tickets!</button>
+            </section>
+          </fieldset>
+        </form>
       </div>
     </div>
     <div class="row">

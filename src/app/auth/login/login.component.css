@@ -18,3 +18,7 @@ button {
   background-color: #6cb9ff;
   border-color: #6cb9ff;
 }
+
+select {
+  width: 100%;
+}
