@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {User} from '../../../_models/user.model';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from '../../../_services/user.service';
 
 @Component({
@@ -12,10 +12,16 @@ export class UserDetailsComponent implements OnInit {
   user: User;
 
   constructor(private route: ActivatedRoute,
+              private router: Router,
               private userService: UserService) { }
 
   ngOnInit() {
     this.user = this.route.snapshot.data['user'];
+  }
+
+  onEdit() {
+    this.user = this.route.snapshot.data['user'];
+    this.router.navigate(['edit'], {relativeTo: this.route});
   }
 
 }

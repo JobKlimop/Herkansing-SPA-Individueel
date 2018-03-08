@@ -8,7 +8,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  @Output('logout') logoutEvent: EventEmitter<any> = new EventEmitter()
+  @Output('logout') logoutEvent: EventEmitter<any> = new EventEmitter();
 
   constructor(private authService: AuthService,
               private router: Router) { }

@@ -24,6 +24,9 @@ import {UserService} from './_services/user.service';
 import {AuthInterceptor} from './_interceptors/auth.interceptor';
 import { UserDetailsComponent } from './main/account/user-details/user-details.component';
 import {TicketService} from './_services/ticket.service';
+import { UserEventsListComponent } from './main/home/user-events-list/user-events-list.component';
+import { UserEventItemComponent } from './main/home/user-events-list/user-event-item/user-event-item.component';
+import { UserEditComponent } from './main/account/user-edit/user-edit.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,10 @@ import {TicketService} from './_services/ticket.service';
     EventDetailsComponent,
     DropdownDirective,
     HomeComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    UserEventsListComponent,
+    UserEventItemComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,

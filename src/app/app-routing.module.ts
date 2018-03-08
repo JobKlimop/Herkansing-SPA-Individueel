@@ -12,18 +12,23 @@ import {LoginComponent} from './auth/login/login.component';
 import {AuthGuard} from './_services/auth-guard.service';
 import {UserDetailsComponent} from './main/account/user-details/user-details.component';
 import {UserResolver} from './_resolvers/user-resolver.service';
+import {UserEventsListComponent} from './main/home/user-events-list/user-events-list.component';
+import {UserEditComponent} from './main/account/user-edit/user-edit.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
 
   {path: '', canActivate: [AuthGuard], component: MainComponent, children: [
-      {path: 'home', component: HomeComponent, resolve: {user: UserResolver}},
+      {path: 'home', component: HomeComponent, resolve: {user: UserResolver}, children: [
+          {path: '', component: UserEventsListComponent}
+        ]},
       {path: 'event', component: EventComponent, children: [
           {path: '', component: EventListComponent},
           {path: 'details/:eventName', component: EventDetailsComponent}
         ]},
       {path: 'account', component: AccountComponent, resolve: {user: UserResolver}, children: [
-          {path: '', component: UserDetailsComponent}
+          {path: '', component: UserDetailsComponent},
+          {path: 'edit', component: UserEditComponent, resolve: {user: UserResolver}}
         ]}
     ]},
   {path: 'auth', component: AuthComponent, children: [

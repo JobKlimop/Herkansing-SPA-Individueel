@@ -39,6 +39,19 @@ export class EventService {
       });
   }
 
+  getEventByUser(): Promise<Event[]> {
+    return this.http.get(
+      this.url + '/getUserEvents',
+      {headers: this.headers})
+      .toPromise()
+      .then((event) => {
+        return event as Event[];
+      })
+      .catch((error) => {
+        return this.handleError(error);
+      });
+  }
+
   private handleError(error: any): Promise<any> {
     console.log('error on event.service');
     return Promise.reject(error.message || error);

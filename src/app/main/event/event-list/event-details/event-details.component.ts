@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Event} from '../../../../_models/event.model';
 import {EventService} from '../../../../_services/event.service';
-import {ActivatedRoute, Params} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import {TicketTypes} from '../../../../_models/tickettypes.model';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {TicketService} from '../../../../_services/ticket.service';
@@ -24,12 +24,13 @@ export class EventDetailsComponent implements OnInit {
 
   constructor(private eventService: EventService,
               private ticketService: TicketService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
     this.ticketForm = new FormGroup({
       'ticketType': new FormControl(Validators.required),
-      'ticketAmount': new FormControl(Validators.required)
+      'ticketAmount': new FormControl(Validators.required, )
     });
 
     this.route.params
@@ -51,17 +52,27 @@ export class EventDetailsComponent implements OnInit {
     this.chosenTicket = chosen.ticketType;
     this.chosenPrice = chosen.ticketType.price;
     this.chosenAmount = chosen.ticketAmount;
-    if (this.chosenTicket === null || this.chosenAmount === null || this.chosenTicket === null && this.chosenAmount === null) {
+    console.log('ChosenAmount1: ' + this.chosenAmount);
+    if (this.chosenTicket === null || this.chosenAmount === null || this.chosenAmount === NaN || this.currentPrice === NaN) {
+      console.log('ChosenAmount2: ' + this.chosenAmount);
       this.currentPrice = 0;
     } else {
       this.currentPrice = this.chosenAmount * this.chosenPrice;
     }
+
+    console.log('currentPrice: ' + this.currentPrice);
   }
 
   getTicket() {
+    for(let i = 0; i < this.chosenAmount; i++) {
+      this.getTicketRequest();
+    }
+  }
+
+  getTicketRequest() {
     this.ticketService.createTicket(this.eventName, this.ticketForm.value)
-      .then((response) => {
-        return response;
+      .then(() => {
+        this.router.navigateByUrl('/');
       });
   }
 }
