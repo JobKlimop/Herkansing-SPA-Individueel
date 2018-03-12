@@ -4,3 +4,7 @@ button{
   margin: auto;
   margin-bottom: 10px;
 }
+
+.editBox {
+  border: 1px solid lightgray;
+}

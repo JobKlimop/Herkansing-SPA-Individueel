@@ -5,6 +5,7 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 import {TicketTypes} from '../../../../_models/tickettypes.model';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {TicketService} from '../../../../_services/ticket.service';
+import {User} from '../../../../_models/user.model';
 
 @Component({
   selector: 'app-event-details',
@@ -13,6 +14,7 @@ import {TicketService} from '../../../../_services/ticket.service';
 })
 export class EventDetailsComponent implements OnInit {
   event: Event;
+  userArray: User[];
   eventName: string;
   ticketTypeArray: TicketTypes[] = [];
   amountArray = [1, 2, 3, 4];
@@ -41,6 +43,10 @@ export class EventDetailsComponent implements OnInit {
             .then((response) => {
               this.event = response;
               this.ticketTypeArray = response.ticketTypes;
+              this.eventService.getAttendingUsers(response)
+                .then((users) => {
+                  this.userArray = users;
+                });
               console.log(this.ticketTypeArray);
             });
         });

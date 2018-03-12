@@ -2,6 +2,7 @@ import {environment} from '../../environments/environment';
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Event} from '../_models/event.model';
+import {User} from '../_models/user.model';
 
 @Injectable()
 export class EventService {
@@ -49,6 +50,31 @@ export class EventService {
       })
       .catch((error) => {
         return this.handleError(error);
+      });
+  }
+
+  // getAttendingUsers(currentEvent: Event): Promise<User[]> {
+  //   const event: Event = new Event(currentEvent.eventName, currentEvent.eventImageUrl, currentEvent.artist, currentEvent.eventDate, currentEvent.eventTime, currentEvent.location, currentEvent.noOfTickets, currentEvent.ticketTypes, currentEvent.ticket);
+  //   return this.http.get(
+  //     this.url + '/getAttendingUsers/' + event.eventName,
+  //     {headers: this.headers})
+  //     .toPromise()
+  //     .then((response) => {
+  //       event.attendingUsers(response);
+  //       return event.users as User[];
+  //     })
+  //     .catch((error) => {
+  //       this.handleError(error);
+  //     });
+  // }
+
+  getAttendingUsers(currentEvent: Event): Promise<User[]> {
+    return this.http.get(
+      this.url + '/getAttendingUsers/' + currentEvent.eventName,
+      {headers: this.headers})
+      .toPromise()
+      .then((users) => {
+        return users as User[];
       });
   }
 

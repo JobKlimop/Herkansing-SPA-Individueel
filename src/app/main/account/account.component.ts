@@ -15,13 +15,6 @@ export class AccountComponent implements OnInit {
               private route: ActivatedRoute) { }
 
   ngOnInit() {
-    // this.userService.getCurrentUser()
-    //   .then((response) => {
-    //     if(response){
-    //       this.user = response;
-    //     }
-    //   });
-
     this.user = this.route.snapshot.data['user'];
   }
 

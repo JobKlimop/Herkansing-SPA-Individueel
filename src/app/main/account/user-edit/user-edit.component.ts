@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {User} from '../../../_models/user.model';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import {UserService} from '../../../_services/user.service';
 
 @Component({
   selector: 'app-user-edit',
@@ -13,7 +14,9 @@ export class UserEditComponent implements OnInit {
   user: User;
   editMode = false;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private userService: UserService) { }
 
   ngOnInit() {
     this.user = this.route.snapshot.data['user'];
@@ -22,7 +25,12 @@ export class UserEditComponent implements OnInit {
   }
 
   onSubmit() {
+    this.userService.editUser(this.userEditForm.value);
+    this.router.navigate(['../'], {relativeTo: this.route});
+  }
 
+  onCancel() {
+    this.router.navigate(['../'], {relativeTo: this.route});
   }
 
   private initForm() {

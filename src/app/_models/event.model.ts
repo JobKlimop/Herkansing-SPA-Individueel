@@ -1,5 +1,6 @@
 import {Ticket} from './ticket.model';
 import {TicketTypes} from './tickettypes.model';
+import {User} from './user.model';
 
 export class Event {
   public eventName: string;
@@ -11,6 +12,7 @@ export class Event {
   public noOfTickets: number;
   public ticketTypes: TicketTypes[];
   public ticket: Ticket[];
+  public users: User[];
 
   constructor(eventName: string, eventImageUrl: string, artist: string, eventDate: string,
               eventTime: string, location: string, noOfTickets: number, ticketTypes: TicketTypes[], ticket: Ticket[]) {
@@ -23,6 +25,10 @@ export class Event {
     this.noOfTickets = noOfTickets;
     this.ticketTypes = ticketTypes;
     this.ticket = ticket;
+  }
+
+  public attendingUsers(users: User[]) {
+    this.users = users;
   }
 }
 

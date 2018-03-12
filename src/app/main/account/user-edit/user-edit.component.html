@@ -1,10 +1,11 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+    <div class="col-md-3 col-lg-3"></div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 editBox">
       <form [formGroup]="userEditForm" (ngSubmit)="onSubmit()">
         <h1>Edit account</h1>
         <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="form-group">
               <label for="userName">Username</label>
               <input type="text" id="userName" formControlName="userName" class="form-control form-rounded" disabled>
@@ -30,14 +31,15 @@
               <input type="email" id="email" formControlName="email" class="form-control form-rounded">
             </div>
             <div class="row">
-              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <button type="submit" class="btn btn-primary">Edit</button>
-                <button type="button" class="btn btn-danger">Cancel</button>
+                <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
               </div>
             </div>
           </div>
         </div>
       </form>
     </div>
+    <div class="col-md-3 col-lg-3"></div>
   </div>
 </div>
