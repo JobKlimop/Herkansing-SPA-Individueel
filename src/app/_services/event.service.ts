@@ -76,6 +76,9 @@ export class EventService {
       .then((users) => {
         return users as User[];
       });
+      // .catch((error) => {
+      //   this.handleError(error);
+      // });
   }
 
   private handleError(error: any): Promise<any> {
