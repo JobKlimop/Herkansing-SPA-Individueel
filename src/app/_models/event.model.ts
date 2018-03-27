@@ -26,9 +26,5 @@ export class Event {
     this.ticketTypes = ticketTypes;
     this.ticket = ticket;
   }
-
-  public attendingUsers(users: User[]) {
-    this.users = users;
-  }
 }
 

@@ -14,6 +14,7 @@ import {UserDetailsComponent} from './main/account/user-details/user-details.com
 import {UserResolver} from './_resolvers/user-resolver.service';
 import {UserEventsListComponent} from './main/home/user-events-list/user-events-list.component';
 import {UserEditComponent} from './main/account/user-edit/user-edit.component';
+import {CreateEventComponent} from './main/event/create-event/create-event.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -26,6 +27,7 @@ const appRoutes: Routes = [
           {path: '', component: EventListComponent},
           {path: 'details/:eventName', component: EventDetailsComponent}
         ]},
+      {path: 'createEvent', component: CreateEventComponent},
       {path: 'account', component: AccountComponent, resolve: {user: UserResolver}, children: [
           {path: '', component: UserDetailsComponent},
           {path: 'edit', component: UserEditComponent, resolve: {user: UserResolver}}

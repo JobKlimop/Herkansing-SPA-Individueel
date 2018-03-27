@@ -81,6 +81,20 @@ export class EventService {
       // });
   }
 
+  createEvent(event: Event): Promise<Event> {
+    this.http.post(
+      this.url + '/createEvent',
+      JSON.stringify(event),
+      {headers: this.headers})
+      .toPromise()
+      .then((response) => {
+        return response;
+      })
+      .catch((error) => {
+        this.handleError(error);
+      });
+  }
+
   private handleError(error: any): Promise<any> {
     console.log('error on event.service');
     return Promise.reject(error.message || error);
