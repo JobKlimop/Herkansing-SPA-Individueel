@@ -1,8 +1,10 @@
-<app-header></app-header>
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-12 col-lg-12">
-      <router-outlet></router-outlet>
+      <app-event-item class="eventItem" *ngFor="let event of eventArray" [event]="event"></app-event-item>
     </div>
   </div>
 </div>
+
+
+

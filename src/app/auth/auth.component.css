@@ -1,0 +1,38 @@
+img {
+
+  width: 30%;
+  height: auto;
+}
+
+li {
+  list-style: none;
+  width: 100%;
+}
+
+.dropdown-toggle {
+  width: 100%;
+}
+
+.caret {
+  left: 90%;
+  top: 45%;
+  position: absolute;
+}
+
+.dropdown-menu {
+  width: 100%;
+}
+
+.loginBtn {
+  background-color: #6cb9ff;
+  border-color: #6cb9ff;
+}
+
+.registerBtn {
+  background-color: limegreen;
+  border-color: limegreen;
+}
+
+.buttonDiv {
+  padding-right: 50px;
+}

@@ -1,0 +1,14 @@
+.eventContainer {
+  border: 1px solid lightgray;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.eventContainer:hover {
+  box-shadow: 3px 3px 3px 3px lightgray;
+}
+
+.eventImage {
+  width: 100%;
+  height: auto;
+}

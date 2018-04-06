@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-12 col-lg-12 ticketLogo">
+      <img src="../../assets/img/TicketKing-Logo-No-background-for-web.png" class="img-responsive center-block">
+    </div>
+    <div class="row">
+    <div class="col-md-3 col-lg-3"></div>
+    <div class="col-xs-12 col-md-6 col-lg-6 buttonDiv">
+      <ul>
+        <li class="dropdown" [ngClass]="{'open': loginIsOpen === true}">
+          <a class="dropdown-toggle btn btn-primary loginBtn" role="button" (click)="toggleLogin()">Login <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <app-login></app-login>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3 col-lg-3"></div>
+    <div class="col-xs-12 col-md-6 col-lg-6 buttonDiv">
+      <ul>
+        <li class="dropdown" [ngClass]="{'open': registerIsOpen === true}">
+          <a class="dropdown-toggle btn btn-primary registerBtn" role="button" (click)="toggleRegister()">Register <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <app-register></app-register>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    </div>
+  </div>
+</div>

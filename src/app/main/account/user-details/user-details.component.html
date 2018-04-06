@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="userImageContainer col-xs-12 col-sm-12 col-md-3 col-lg-3">
+      <img class="userImage" src="{{userImageUrl}}">
+      <input type="file" style="display: none" (change)="onImageSelected($event)" #imageInput>
+      <img class="editIcon" src="{{editIconUrl}}" (click)="imageInput.click()">
+      <h2 class="userName">{{user.userName}}</h2>
+    </div>
+    <div class="col-md-3 col-lg-3"></div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 userDetails">
+      <p>First name: {{user.firstName}}</p>
+      <p *ngIf="user.middleName !== ''">Middle name: {{user.middleName}}</p>
+      <p>Last name: {{user.lastName}}</p>
+      <p>Age: {{user.age}}</p>
+      <p>E-mail: {{user.email}}</p>
+      <div class="col-xs-12 col-sm-11 col-md-11 col-lg-11 buttonDiv">
+        <button type="button" class="btn btn-primary editBtn" routerLinkActive="active" (click)="onEdit()">Edit</button>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,15 @@
+<div class="container eventContainer" routerLink="/event/details/{{event.eventName}}">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <img class="eventImage" src="{{event.eventImageUrl}}">
+    </div>
+    <div class="col-xs-10 col-md-6 col-lg-6">
+      <h3>{{event.eventName}}</h3>
+      <p>Artist: {{event.artist}}</p>
+      <p>Location: {{event.location}}</p>
+      <p>Date: {{event.eventDate}}</p>
+      <p>Time: {{event.eventTime}}</p>
+      <p>Tickets still available: {{event.noOfTickets - event.ticket.length}}</p>
+    </div>
+  </div>
+</div>
