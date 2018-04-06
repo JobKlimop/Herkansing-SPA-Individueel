@@ -24,7 +24,7 @@ app.get('*', (req, res) => {
  * Get port from environment and store in Express.
  */
 const port = process.env.PORT || 4200;
-app.listen('port', port);
+app.set('port', port);
 
 /**
  * Create HTTP server.
@@ -34,4 +34,4 @@ const server = http.createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
-server.listen(port, () => console.log(`Angular server running on port ${port}`));
+server.listen(PORT, () => console.log(`Angular server running on port ${port}`));
