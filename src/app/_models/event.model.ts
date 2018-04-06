@@ -12,10 +12,11 @@ export class Event {
   public noOfTickets: number;
   public ticketTypes: TicketTypes[];
   public ticket: Ticket[];
-  public users: User[];
+  public eventImage: File;
 
   constructor(eventName: string, eventImageUrl: string, artist: string, eventDate: string,
-              eventTime: string, location: string, noOfTickets: number, ticketTypes: TicketTypes[], ticket: Ticket[]) {
+              eventTime: string, location: string, noOfTickets: number, ticketTypes: TicketTypes[],
+              ticket: Ticket[], eventImage: File) {
     this.eventName = eventName;
     this.eventImageUrl = eventImageUrl;
     this.artist = artist;
@@ -25,6 +26,7 @@ export class Event {
     this.noOfTickets = noOfTickets;
     this.ticketTypes = ticketTypes;
     this.ticket = ticket;
+    this.eventImage = eventImage;
   }
 }
 
