@@ -10,7 +10,6 @@
         <p>{{event.eventDate}} - {{event.eventTime}}</p>
         <p>{{event.location}}</p>
         <p>Tickets left: {{event.noOfTickets - event.ticket.length}}</p>
-        <p>{{event.ticketTypes[0].ticketType}}</p>
       </div>
       <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 ticketSelector">
         <form class="form-group" [formGroup]="ticketForm">
