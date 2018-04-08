@@ -14,7 +14,7 @@ export class UserResolver implements Resolve<User> {
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<User> | Promise<User> | User {
     return this.userService.getCurrentUser()
       .then((user) => {
-        if(user) {
+        if (user) {
           return user;
         } else {
           return null;

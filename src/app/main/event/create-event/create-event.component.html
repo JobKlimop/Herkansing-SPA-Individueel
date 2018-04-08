@@ -35,6 +35,23 @@
                 <label for="eventImage">Pick an image:</label>
                 <input type="file" id="eventImage" formControlName="eventImage" class="form-control form-rounded" (change)="onImageSelected($event)">
               </div>
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" formArrayName="ticketTypes">
+                <div class="row" *ngFor="let ticket of createEventForm['controls'].ticketTypes['controls']; let i = index" [formGroupName]="i">
+                  <div class="col-xs-12">
+                    <label for="ticketType">Type of ticket:</label>
+                    <input type="text" id="ticketType" formControlName="ticketType" class="form-control form-rounded">
+                  </div>
+                  <div class="col-xs-12">
+                    <label for="price">Price:</label>
+                    <input type="number" id="price" formControlName="price" class="form-control form-rouned">
+                  </div>
+                </div>
+                <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <button type="button" class="btn btn-success" (click)="onAddTicketType()">Add ticket</button>
+                </div>
+                </div>
+              </div>
               <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                   <button type="submit" class="btn btn-primary">Create event</button>
