@@ -40,8 +40,6 @@ export class CreateEventComponent implements OnInit {
   }
 
   onImageSelected(image) {
-    console.log('IMAGE: ');
-    console.log(image);
     this.selectedImage = image.target.files[0];
     console.log(this.selectedImage);
   }
@@ -50,6 +48,7 @@ export class CreateEventComponent implements OnInit {
 
     let eventName = '';
     let artist = '';
+    let eventImageUrl = '';
     let eventDate = '';
     let eventTime = '';
     let location = '';
@@ -60,6 +59,7 @@ export class CreateEventComponent implements OnInit {
     this.createEventForm = new FormGroup({
       'eventName': new FormControl(eventName, Validators.required),
       'artist': new FormControl(artist, Validators.required),
+      'eventImageUrl': new FormControl(eventImageUrl),
       'eventDate': new FormControl(eventDate, Validators.required),
       'eventTime': new FormControl(eventTime, Validators.required),
       'location': new FormControl(location, Validators.required),
