@@ -29,6 +29,7 @@ import { UserEventItemComponent } from './main/home/user-events-list/user-event-
 import { UserEditComponent } from './main/account/user-edit/user-edit.component';
 import { AttendingUserItemComponent } from './main/event/event-list/event-details/attending-user-item/attending-user-item.component';
 import { CreateEventComponent } from './main/event/create-event/create-event.component';
+import { OtherUserDetailsComponent } from './main/account/other-user-details/other-user-details.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { CreateEventComponent } from './main/event/create-event/create-event.com
     UserEventItemComponent,
     UserEditComponent,
     AttendingUserItemComponent,
-    CreateEventComponent
+    CreateEventComponent,
+    OtherUserDetailsComponent
   ],
   imports: [
     BrowserModule,
