@@ -31,6 +31,8 @@ export class CreateEventComponent implements OnInit {
 
     // const fd = new FormData();
     // fd.append('eventImage', this.refactoredImage);
+    console.log('CREATEEVENTFORM');
+    console.log(this.createEventForm.value);
     this.eventService.createEvent(this.createEventForm.value);
     this.router.navigate(['../event'], {relativeTo: this.route});
   }
@@ -55,8 +57,8 @@ export class CreateEventComponent implements OnInit {
     let location = '';
     let noOfTickets = '';
     let ticketTypes: TicketTypes[];
-    let eventImage: File = this.selectedImage;
-    //
+    // let eventImage: File = this.selectedImage;
+
     this.createEventForm = new FormGroup({
       'eventName': new FormControl(eventName, Validators.required),
       'artist': new FormControl(artist, Validators.required),
@@ -77,6 +79,5 @@ export class CreateEventComponent implements OnInit {
       // data.append('ticketTypes', JSON.stringify(ticketTypes));
       // data.append('eventImage', eventImage);
     });
-
   }
 }

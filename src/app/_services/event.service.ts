@@ -84,11 +84,11 @@ export class EventService {
   createEvent(event: Event): Promise<any> {
     console.log('1.');
     console.log(event);
-    console.log('2.');
 
     return this.http.post(
       this.url + '/createEvent',
-      JSON.stringify(event))
+      JSON.stringify(event),
+      {headers: this.headers})
       .toPromise()
       .then((response) => {
         return response;
