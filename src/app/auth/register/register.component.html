@@ -2,11 +2,11 @@
   <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
     <div class="input-group col-xs-12 col-md-12 col-lg-12">
       <label for="userName">Username</label>
-      <input type="text" id="userName" formControlName="userName" class="form-control">
+      <input type="text" id="userName" formControlName="userName" class="form-control" required>
     </div>
     <div class="input-group col-xs-12 col-md-12 col-lg-12">
       <label for="firstName">First name</label>
-      <input type="text" id="firstName" formControlName="firstName" class="form-control">
+      <input type="text" id="firstName" formControlName="firstName" class="form-control" required>
     </div>
     <div class="input-group col-xs-12 col-md-12 col-lg-12">
       <label for="middleName">Middle name</label>
@@ -14,19 +14,19 @@
     </div>
     <div class="input-group col-xs-12 col-md-12 col-lg-12">
       <label for="lastName">Last name</label>
-      <input type="text" id="lastName" formControlName="lastName" class="form-control">
+      <input type="text" id="lastName" formControlName="lastName" class="form-control" required>
     </div>
     <div class="input-group col-xs-12 col-md-12 col-lg-12">
       <label for="age">Age</label>
-      <input type="number" id="age" formControlName="age" class="form-control">
+      <input type="number" id="age" formControlName="age" class="form-control" required>
     </div>
     <div class="input-group col-xs-12 col-md-12 col-lg-12">
       <label for="email">E-mail</label>
-      <input type="email" id="email" formControlName="email" class="form-control">
+      <input type="email" id="email" formControlName="email" class="form-control" required>
     </div>
     <div class="input-group col-xs-12 col-md-12 col-lg-12">
       <label for="password">Password</label>
-      <input type="password" id="password" formControlName="password" class="form-control">
+      <input type="password" id="password" formControlName="password" class="form-control" required>
     </div>
     <div class="row button-block">
       <div class="col-xs-12 col-md-12 col-lg-12">
