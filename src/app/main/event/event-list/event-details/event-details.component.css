@@ -31,3 +31,14 @@ li {
 select {
   border: 1px solid lightgray;
 }
+
+.userList{
+  list-style-type: none;
+  overflow: hidden;
+}
+
+.users {
+  /*float: left;*/
+  display: inline;
+  text-align: center;
+}

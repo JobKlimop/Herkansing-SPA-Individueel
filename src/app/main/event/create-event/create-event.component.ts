@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 import {EventService} from '../../../_services/event.service';
 import {TicketTypes} from '../../../_models/tickettypes.model';
 import {assertNumber} from '@angular/core/src/render3/assert';
@@ -31,8 +31,6 @@ export class CreateEventComponent implements OnInit {
 
     // const fd = new FormData();
     // fd.append('eventImage', this.refactoredImage);
-    console.log('CREATEEVENTFORM');
-    console.log(this.createEventForm.value);
     this.eventService.createEvent(this.createEventForm.value);
     this.router.navigate(['../event'], {relativeTo: this.route});
   }
@@ -42,8 +40,6 @@ export class CreateEventComponent implements OnInit {
   }
 
   onImageSelected(image) {
-    console.log('IMAGE: ');
-    console.log(image);
     this.selectedImage = image.target.files[0];
     console.log(this.selectedImage);
   }
@@ -52,21 +48,23 @@ export class CreateEventComponent implements OnInit {
 
     let eventName = '';
     let artist = '';
+    let eventImageUrl = '';
     let eventDate = '';
     let eventTime = '';
     let location = '';
     let noOfTickets = '';
-    let ticketTypes: TicketTypes[];
+    let ticketTypes = new FormArray([]);
     // let eventImage: File = this.selectedImage;
 
     this.createEventForm = new FormGroup({
       'eventName': new FormControl(eventName, Validators.required),
       'artist': new FormControl(artist, Validators.required),
+      'eventImageUrl': new FormControl(eventImageUrl),
       'eventDate': new FormControl(eventDate, Validators.required),
       'eventTime': new FormControl(eventTime, Validators.required),
       'location': new FormControl(location, Validators.required),
       'noOfTickets': new FormControl(noOfTickets, Validators.required),
-      'ticketTypes': new FormControl(ticketTypes, Validators.required)
+      'ticketTypes': ticketTypes
       // 'eventImage': new FormControl(fd)
 
       // const data = new FormData();
@@ -79,5 +77,18 @@ export class CreateEventComponent implements OnInit {
       // data.append('ticketTypes', JSON.stringify(ticketTypes));
       // data.append('eventImage', eventImage);
     });
+  }
+
+  onAddTicketType() {
+
+    const ticketType = '';
+    const price = 0;
+
+    (<FormArray>this.createEventForm.get('ticketTypes')).push(
+      new FormGroup({
+        'ticketType': new FormControl(ticketType, Validators.required),
+        'price': new FormControl(price, Validators.required)
+      })
+    );
   }
 }

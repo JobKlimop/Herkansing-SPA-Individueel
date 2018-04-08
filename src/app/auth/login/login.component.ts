@@ -26,10 +26,8 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin() {
-    console.log('1');
     const userData = this.loginForm.value;
-    console.log(userData);
-    if(userData.userName === '' || userData.password === '') {
+    if (userData.userName === '' || userData.password === '') {
       console.log('Vul iets in');
     } else if (userData.userName && userData.password) {
       this.authService.login(userData.userName, userData.password)

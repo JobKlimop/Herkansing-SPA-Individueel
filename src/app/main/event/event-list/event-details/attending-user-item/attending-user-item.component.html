@@ -2,7 +2,12 @@
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <img class="userImage" src="{{imageUrl}}">
-      <h4 class="userName">{{user.userName}}</h4>
+      <div *ngIf="user.userName.length <= 7">
+        <h4 class="userName">{{user.userName}}</h4>
+      </div>
+      <div *ngIf="user.userName.length > 7">
+        <h4 class="userName">{{user.userName.substr(0,7) + "..."}}</h4>
+      </div>
     </div>
   </div>
 </div>
